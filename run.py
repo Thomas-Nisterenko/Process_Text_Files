@@ -11,6 +11,9 @@ Purpose: This python script takes user reviews written in .txt files
 import os
 import requests
 
+FILES_DIRECTORY = "/data/feedback"
+# external IP to be replaced with a proper IP address
+WEB_ADDRESS = "http://<corpweb-external-IP>/feedback"
 
 def get_txtfiles(dir_path):
     """
@@ -75,7 +78,14 @@ def main():
     main function that takes care of the program's overall logic and calls
     other functions.
     """
-    pass
+
+    # gets the text files
+    txt_files = get_txtfiles(FILES_DIRECTORY)
+    # iterates over all files, processes them and posts the reviews
+    for file in txt_files:
+        review_dict = file_to_dict(FILES_DIRECTORY + "/" + file)
+        post_dict(review_dict, WEB_ADDRESS)
+
 
 
 if __name__ == "__main__":
