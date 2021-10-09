@@ -40,6 +40,22 @@ def file_to_dict(filename):
     :return file_dict: dictionary formatted with file information
     """
 
+    # file_dict is intialized as an empty dictionary
+    file_dict = {}
+
+    # opens file in read mode
+    with open(filename, "r") as review_file:
+        # first three lines get the fields title, name, and date
+        file_dict["title"] = review_file.readline().strip()
+        file_dict["name"] = review_file.readline().strip()
+        file_dict["date"] = review_file.readline().strip()
+
+        # remaining lines are joined together and assigned to feedback key
+        file_dict["feedback"] = "".join(review_file.readlines()).strip()
+    
+    return file_dict
+
+
 def post_dict(review_dict, address):
     """
     This function takes a dictionary and posts its contents to the webpage.
