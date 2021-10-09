@@ -64,6 +64,11 @@ def post_dict(review_dict, address):
     :return: None
     """
 
+    # posts response
+    response = requests.post(address, review_dict)
+    # warns for errors sending response
+    response.raise_for_status()
+
 
 def main():
     """
