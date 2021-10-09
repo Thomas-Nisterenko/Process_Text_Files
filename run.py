@@ -20,6 +20,17 @@ def get_txtfiles(dir_path):
     :return txtfiles: list with  filenames of txt files
     """
 
+    # txtfiles is initialized as an empty list
+    txtfiles = []
+
+    # traverses the specified directory and appends only the
+    # .txt files to the list
+    for file in os.listdir(dir_path):
+        if file.endswith(".txt"):
+            txtfiles.append(file)
+    
+    return txtfiles
+
 
 def file_to_dict(filename):
     """
