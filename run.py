@@ -87,6 +87,5 @@ def main():
         post_dict(review_dict, WEB_ADDRESS)
 
 
-
 if __name__ == "__main__":
     main()
