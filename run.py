@@ -1,4 +1,4 @@
-#!usr/bin/env python3
+#!/usr/bin/env python3
 
 """
 Author: Thomas Cascais Nisterenko
@@ -13,7 +13,7 @@ import requests
 
 FILES_DIRECTORY = "/data/feedback"
 # external IP to be replaced with a proper IP address
-WEB_ADDRESS = "http://<corpweb-external-IP>/feedback"
+WEB_ADDRESS = "http://<corpweb-external-IP>/feedback/"
 
 def get_txtfiles(dir_path):
     """
